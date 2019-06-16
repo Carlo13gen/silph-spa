@@ -1,0 +1,38 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    color: #394c5f
+}
+
+.titolo{
+	margin-left: 24rem;
+}
+
+.title{
+	text-align: center;
+	font-size: 3rem;
+	color: #394c5f
+}
+
+.container{
+	margin: 1.5rem;
+	border-width: 1rem;
+	border-color: #394c5f;
+}
+
+.incipit{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+}
+
+.testo{
+	font-style: italic;
+	font-weight: normal;
+}
+
+.riga0{
+	margin-top: 1rem;
+}
+
+.riga1{
+	margin-left: 24rem;
+}
