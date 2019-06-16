@@ -1,0 +1,29 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    color: #394c5f
+}
+
+.display-3{
+    font-size: 8rem;
+    margin-left: 12rem;
+}
+
+.first{
+    margin-top: 2rem;
+}
+
+.second{
+    margin-left: 12rem;
+    margin-top: 3.5rem;
+}
+
+.invia{
+    border-color: #394c5f;
+    background-color: ghostwhite ;
+    color: #394c5f;
+}
+
+.invia:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}

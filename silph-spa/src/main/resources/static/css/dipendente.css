@@ -1,0 +1,38 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.title{
+    text-align: left;
+    font-size: 3rem;
+}
+
+.container{
+    margin-top: 2.5rem;
+    margin-left: 7rem;
+    align-content: center;
+}
+
+.riga1{
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.riga2{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.custom{
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    border-width: 0.2rem;
+    border-color: #394c5f;
+
+}
+
+.custom:hover{
+    background-color:lavender;
+}

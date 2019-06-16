@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" href="css/navBar.css" rel="stylesheet">
+  <link type="text/css" href="css/dettaglioRichiesta.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
+</head>
+<body>
+     	<!-- Navigation -->
+   <nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="homePage nav-link" href="index.html">Home |</a>
+        </li>
+        <li class="photographersPage nav-item active">
+          <a class="nav-link" href="#">Photographers</a>
+        </li>
+        <li class="albumsPage nav-item active">
+          <a class="nav-link" href="#">Albums</a>
+        </li>
+        <li class="photosPage nav-item active">
+          <a class="nav-link" href="#">Photos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn border-light text-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
+	<div class="container">
+		<div class="riga0 row">
+			<div class="titolo service-heading-block">
+				<h2 class="title">Request Recap</h2>
+			</div>
+		</div>
+		<div class="riga1 row">
+			<div class="container">
+				<div class="riga1_1 row">
+					<div class="firstName">
+						<span class="incipit">First Name: <span class="testo" th:text="${richiesta.nomeCliente}">placeholder</span></span>
+					</div>
+				</div>
+				<div class="riga1_2 row">
+					<div class="lastName">
+						<span class="incipit">Last Name: <span class="testo" th:text="${richiesta.cognomeCliente}">placeholder</span></span>
+					</div>
+				</div>
+				<div class="riga1_3 row">
+					<div class="email">
+						<span class="incipit">Email: <span class="testo" th:text="${richiesta.emailCliente}">placeholder</span></span>
+					</div>
+				</div>
+				<div class="riga1_4 row">
+					<div class="foto">
+						<span class="incipit">Photo's ids: <span class="testo" th:text="${richiesta.foto}">placeholder</span></span>
+					</div>
+				</div>
+				<div class="riga1_5 row">
+					<div class="requestId">
+						<span class="incipit">Request id: <span class="testo" th:text="${richiesta.id}">placeholder</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
