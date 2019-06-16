@@ -16,7 +16,9 @@ public class Fotografo {
 	@Column(nullable = false)
 	private String cognome;
 	
-	private String immagine;
+	@Lob
+    @Column(name="immagine", length=100000,nullable=false)
+    private byte[] immagine;
 	
 	@OneToMany(mappedBy = "fotografo")
 	private List<Album> album;
@@ -54,11 +56,11 @@ public class Fotografo {
 		this.cognome = cognome;
 	}
 
-	public String getImmagine() {
+	public byte[] getImmagine() {
 		return immagine;
 	}
 
-	public void setImmagine(String immagine) {
+	public void setImmagine(byte[] immagine) {
 		this.immagine = immagine;
 	}
 

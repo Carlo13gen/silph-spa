@@ -19,8 +19,10 @@ public class Foto {
 	@ManyToMany
 	private List<Tag> tags;
 	
-	@Column(nullable = false)
-	private String immagine;
+	
+	@Lob
+    @Column(name="immagine", length=100000,nullable=false)
+    private byte[] immagine;
 	
 	@ManyToOne
 	private Album album;
@@ -62,11 +64,11 @@ public class Foto {
 		this.tags = tags;
 	}
 
-	public String getImmagine() {
+	public byte[] getImmagine() {
 		return immagine;
 	}
 
-	public void setImmagine(String immagine) {
+	public void setImmagine(byte[] immagine) {
 		this.immagine = immagine;
 	}
 

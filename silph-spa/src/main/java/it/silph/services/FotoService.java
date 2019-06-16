@@ -21,4 +21,9 @@ public class FotoService {
 		return (List<Foto>) fotoRepository.findByAlbum_id(album_id);
 	}
 	
+	@Transactional
+	public Foto inserisciFoto(Foto f) {
+		return this.fotoRepository.save(f);
+	}
+	
 }

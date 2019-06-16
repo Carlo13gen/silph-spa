@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link type="text/css" href="css/navBar.css" rel="stylesheet" />
+
+<link
+	href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+	rel="stylesheet">
+<link type="text/css" media="all" rel="stylesheet"
+	th:href="@{/css/index.css}" href="/css/index.css">
+
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="homePage nav-link"
+					href="#">Home |</a></li>
+				<li class="photographersPage nav-item active"><a
+					class="nav-link" href="#">Photographers</a></li>
+				<li class="albumsPage nav-item active"><a class="nav-link"
+					href="#">Albums</a></li>
+				<li class="photosPage nav-item active"><a class="nav-link"
+					href="#">Photos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div>
+		<h4>Aggiungi una nuova foto</h4>
+		<div>
+			<form th:action="@{/inserisciImmagine}" th:object="${immagine}"
+				method="post" enctype="multipart/form-data">
+				<table>
+				<tr>
+					<td><input type="file" accept="image/*" name="image" /></td>
+				</tr>
+				<tr>
+					<td>Nome:</td>
+					<td><input type="text" th:field="*{nome}"></td>
+					<td th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></td>
+				</tr>
+				<tr>
+					<td><div class="testo1 form-group">
+						<label for="exampleFormControlTextarea1">Descrizione</label>
+    					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+    				</td>
+    			</tr>
+    			<tr>
+					<td><div class="testo2 form-group">
+						<label for="exampleFormControlTextarea1">Tags</label>
+    					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+    					Inserisci i tag separati da virgole</textarea></div>
+    				</td>
+    			</tr>
+    			<tr>
+					<td><button type="submit">Invio</button></td>
+				</tr>
+				</table>
+			</form>	
+		</div>
+	</div>
+</body>
+</html>
