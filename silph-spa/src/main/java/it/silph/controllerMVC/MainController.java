@@ -24,6 +24,7 @@ public class MainController {
 	public String fotografiPage() {
 		return "fotografiPage.html";
 	}
-		
+	
+	
 	
 }
