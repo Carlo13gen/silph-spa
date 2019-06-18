@@ -1,5 +1,6 @@
 package it.silph.controllerMVC;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,13 @@ public class DipendenteController {
 
 	
 	@RequestMapping(value="/signIn", method = RequestMethod.POST)
-	public String loginDipendente(@Valid @ModelAttribute("auth") Auth auth,Model model, BindingResult bindingResult) {
+	public String loginDipendente(HttpSession session,@Valid @ModelAttribute("auth") Auth auth,Model model, BindingResult bindingResult) {
 		this.loginFormValidator.validate(auth, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			if(authcontroller.IsSignInGranted(auth))
+			if(authcontroller.IsSignInGranted(auth)) {
+				//session.setAttribute("Username", auth.getUsername());
 				return "dipendente.html";
+				}
 			else
 				bindingResult.reject("erroreAuth");
 		}
