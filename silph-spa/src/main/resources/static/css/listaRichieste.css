@@ -1,0 +1,32 @@
+body{
+	font-family: 'Quicksand', 'sans-serif';
+	color: #394c5f
+}
+
+.title{
+	margin-top: 2rem;
+	margin-left: 22rem;
+}
+
+.titolo{
+	font-size: 3rem;
+}
+
+.requestList{
+	margin-left: 20rem;
+	border-color:  #394c5f;
+}
+
+.custom{
+	border-color: #394c5f;
+	width: 25rem;
+}
+
+.lst{
+	margin-top: 1rem;
+}
+
+.custom:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}
