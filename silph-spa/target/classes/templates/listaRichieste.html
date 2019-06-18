@@ -53,11 +53,13 @@
                   </div>
               </nav>
     <div class="container">
-    	<div class="title">
-    		<h4 class="titolo">Requests</h4>
-    	</div>
-    	<div class="list-group">
-			<ul class="requestList">
+    	<div class="row">
+    		<div class="col-md-auto">
+    		<div class="title">
+    			<h4 class="titolo">New Requests</h4>
+    		</div>
+    			<div class="list-group">
+			<ul class="requestList" style-type="none">
   				<li class="lst" th:each="richiesta : ${richieste}">
   					<a th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
   					<div>
@@ -71,6 +73,29 @@
   					</a>
   				</li>
   			</ul>
+		</div>
+		</div>
+			<div class="col-md-auto">
+    		<div class="title">
+    			<h4 class="titolo">Old Requests</h4>
+    		</div>
+    			<div class="list-group">
+			<ul class="requestList" style-type="none">
+  				<li class="lst" th:each="richiesta : ${richieste}">
+  					<a th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
+  					<div>
+  					<span 
+  					 th:text="'Id:' + ' ' + ${richiesta.id}">placeholder
+  					</span>
+  					</div>
+  					<div>
+  						<span th:text="'Cliente: ' + ${richiesta.emailCliente}">placeholder</span>
+  					</div>
+  					</a>
+  				</li>
+  			</ul>
+		</div>
+		</div>
 		</div>
 	</div>
 </body>

@@ -5,7 +5,7 @@ body{
 
 .title{
 	margin-top: 2rem;
-	margin-left: 22rem;
+	margin-left: 3rem;
 }
 
 .titolo{
@@ -13,13 +13,17 @@ body{
 }
 
 .requestList{
-	margin-left: 20rem;
 	border-color:  #394c5f;
+	list-style-type: none;
 }
 
 .custom{
 	border-color: #394c5f;
 	width: 25rem;
+}
+
+.col-md-auto{
+	margin-left: 2rem;
 }
 
 .lst{
