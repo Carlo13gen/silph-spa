@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Immagini</title>
+	</head>
+	<body>
+		<h4>Immagini</h4>
+		<ul>
+			<li th:each="foto : ${immagini}">
+				<img th:src="@{'/imageDisplay' + '/' + ${foto.id}}" >
+				<span th:text="${foto.nome}"></span>
+			</li>
+		</ul>
+	</body>
+</html>
+

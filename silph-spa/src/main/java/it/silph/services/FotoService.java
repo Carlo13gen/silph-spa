@@ -26,4 +26,14 @@ public class FotoService {
 		return this.fotoRepository.save(f);
 	}
 	
+	@Transactional
+	public Foto fotoPerId(Long id) {
+		return this.fotoRepository.findById(id).get();
+	}
+	
+	@Transactional
+	public List<Foto> allFoto() {
+		return (List<Foto>) this.fotoRepository.findAll();
+	}
+	
 }

@@ -21,7 +21,7 @@ public class Foto {
 	
 	
 	@Lob
-    @Column(name="immagine", length=100000,nullable=false)
+    @Column(name="immagine",nullable=false)
     private byte[] immagine;
 	
 	@ManyToOne
