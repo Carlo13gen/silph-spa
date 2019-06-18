@@ -36,3 +36,13 @@ body{
 .riga1{
 	margin-left: 24rem;
 }
+
+.gestisci{
+	border-color: #394c5f;
+	margin-top: 1rem;
+}
+
+.gestisci:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}

@@ -25,6 +25,10 @@ public class MainController {
 		return "fotografiPage.html";
 	}
 	
+	@RequestMapping("/home")
+	public String homePage() {
+		return "index.html";
+	}
 	
 	
 }

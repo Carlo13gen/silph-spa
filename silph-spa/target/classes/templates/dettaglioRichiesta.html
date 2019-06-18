@@ -10,8 +10,8 @@
     <!-- Bootstrap CSS -->
    
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link type="text/css" href="css/navBar.css" rel="stylesheet">
-  <link type="text/css" href="css/dettaglioRichiesta.css" rel="stylesheet">
+  <link type="text/css" href="/css/navBar.css" rel="stylesheet">
+  <link type="text/css" href="/css/dettaglioRichiesta.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
 </head>
@@ -79,6 +79,12 @@
 					<div class="requestId">
 						<span class="incipit">Request id: <span class="testo" th:text="${richiesta.id}">placeholder</span></span>
 					</div>
+				</div>
+				<!-- Aggiungere un metodo o qualcosa -->
+				<div class="riga1_6 row">
+					<a href="#" class="gestisci btn">
+						<span>Manage Request</span>
+					</a>
 				</div>
 			</div>
 		</div>
