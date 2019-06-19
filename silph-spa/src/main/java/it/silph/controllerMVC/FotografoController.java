@@ -45,7 +45,7 @@ public class FotografoController {
 
 	@RequestMapping("/nuovoFotografo")
 	public String nuovoAlbum(Model model) {
-		model.addAttribute("album", new Fotografo());
+		model.addAttribute("album", new Album());
 		return "nuovoFotografo.html";
 	}
 
