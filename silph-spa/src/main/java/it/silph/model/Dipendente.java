@@ -6,10 +6,12 @@ import javax.persistence.*;
 public class Dipendente {
 
 	@Id
+	@Column(name="username")
 	private String username;
 	
-	@Column(nullable = false)
+	@Column(name="password",nullable=false)
 	private String password;
+	
 	
 	@Column(nullable = false)
 	private String nome;
@@ -17,8 +19,20 @@ public class Dipendente {
 	@Column(nullable = false)
 	private String cognome;
 	
+	@Column(nullable=false)
+	private String role;
+	
 	//COSTRUTTORE
 	public Dipendente() {
+	}
+	
+	public Dipendente(String username, String password, String nome, String cognome, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.role = role;
 	}
 
 	//GETTERS & SETTERS
@@ -53,9 +67,13 @@ public class Dipendente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+	
+	public String getRole() {
+		return role;
+	}
 
-	public boolean checkPassword(String password) {
-		return this.password.equals(password);
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }
