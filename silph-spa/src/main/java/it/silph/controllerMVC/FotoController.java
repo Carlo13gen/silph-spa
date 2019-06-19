@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import it.silph.model.Album;
 import it.silph.model.Foto;
-import it.silph.services.AlbumService;
 import it.silph.services.FotoService;
 import it.silph.validator.FotoValidator;
 
@@ -30,29 +28,20 @@ public class FotoController {
 
 	@Autowired
 	private FotoService fotoService;
-	
-	@Autowired
-	private AlbumService albumService;
 
 	@Autowired
 	private FotoValidator fotoValidator;
 
-	@RequestMapping("/nuovaImmagine/Album{id}")
+	@RequestMapping("/nuovaImmagine/album/{id}")
 	public String nuovaImmagine(@PathVariable("id") Long id,Model model) {
-		
-		Foto foto=new Foto();
-		
-		Album a=this.albumService.getAlbumPerId(id);
-		foto.setAlbum(a);
-		
-		model.addAttribute("immagine", foto);
+		model.addAttribute("album_id", id);
+		model.addAttribute("immagine", new Foto());
 		return "nuovaImmagine.html";
 	}
 
 	@PostMapping("/inserisciImmagine")
 	public String inserisciFoto(@Validated @ModelAttribute("immagine") Foto foto,
-			@RequestParam("image") MultipartFile img,
-			Model model,BindingResult bindingResult) throws IOException {
+			@RequestParam("image") MultipartFile img,Model model,BindingResult bindingResult) throws IOException {
 
 		this.fotoValidator.validate(foto, bindingResult);
 
@@ -60,10 +49,10 @@ public class FotoController {
 			byte[] imageData= img.getBytes();
 			
 			foto.setImmagine(imageData);
-			
+
 			this.fotoService.inserisciFoto(foto);
-			model.addAttribute("inserita", true); //aggiungi controllo su thymeleaf
-			return "nuovaImmagine.html";  //inserire bottone per terminare inserimento
+			model.addAttribute("inserito", true); 
+			return "forward:/operazioni";    
 
 		}
 		else return "nuovaImmagine.html";
@@ -76,12 +65,6 @@ public class FotoController {
 	    return foto.getImmagine();
 	}
 	
-	
-	@GetMapping("/fotografie")
-	public String immagini(Model model) {
-		model.addAttribute("immagini", this.fotoService.allFoto());
-		return "fotografie.html";
-	}
 	
 	//ritorna tutte le foto in un album
 	@GetMapping("/album/{id}/fotografie")

@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" 
+<!doctype html>
+<html lang="en"  
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns="http://www.w3.org/1999/html">
-<head>
-	    
-	<title>Albums</title>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
    
-   	
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" href="css/albums.css" rel="stylesheet" />
-	<link type="text/css" href="css/navBar.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link type="text/css" href="css/navBar.css" rel="stylesheet" />
+    <link type="text/css" href="css/fotografi.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"><link type="text/css" media="all" rel="stylesheet" th:href="@{/css/index.css}" href="/css/index.css" >
+  
+  </head>
+  <body>
 
-</head>
-<body>
-	<nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
+    <!-- Navigation -->
+    <nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,26 +45,31 @@
                     <button class="btn border-light text-light my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </li>
+                <li class="nav-item active">
+                  <a class="login nav-link ml-5" href="/login">LOGIN</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon mr-1"></span>
+                  </button>
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="container">
-    		<div class="titolo">
-    			<h4 class="display">Seleziona Album</h4>
-    		</div>
-    	
-    		<ul class="listaAlbum row">
-         	   <li th:each="album : ${albums}" class="col-md-4">
+	<div class="contenitorefotografi container">
+		<div class="titolo">
+			<h4 class="display">Seleziona Fotografo</h4>
+		</div>
+    		<ul class="listaFotografi row">
+         	   <li th:each="fotografo : ${fotografi}" class="col-md-4">
          	   		<div class="thumbnail">
-         	   		<a th:href="'/nuovaImmagine/album/' + ${album.id}">
-            			<img th:src="@{'/albumImage' + '/' + ${album.id}}">
+         	   		<a th:href="'/nuovoAlbum/fotografo/' + ${fotografo.id}" class="btn">
+            			<img th:src="@{'/fotografoImage' + '/' + ${fotografo.id}}">
             		</a>
             		<div class="dati">
-            			<p  th:text="'Nome: ' + ${album.nome}">placeholder</p>
+            		<h1  th:text="${fotografo.nome} + ' ' + ${fotografo.cognome}">placeholder</h1>
             		</div>
             		</div>
             	</li>
-        	</ul> 	
-	</div>
-</body>
+        	</ul>
+   </div>
+  </body>
 </html>

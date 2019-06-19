@@ -9,7 +9,6 @@ body{
 
 .container{
     margin-top: 2.5rem;
-    margin-left: 7rem;
     align-content: center;
 }
 
@@ -35,4 +34,10 @@ body{
 
 .custom:hover{
     background-color:lavender;
+}
+
+.messaggio{
+	margin-left: 12rem;
+	font-size: 3rem;
+	margin-top: 2rem;
 }

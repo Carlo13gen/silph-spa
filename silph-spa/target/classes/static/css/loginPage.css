@@ -1,6 +1,7 @@
 body{
     background-color: #e9ecef ;
     color: black; 
+    font-family:'Quicksand', sans-serif;
 }
 .login{
     border-radius: 10%;
@@ -22,7 +23,6 @@ input[type=checkbox], input[type=radio] {
     margin-top: 0.495rem;
 }
 .testoLogo{
-    font-family: 'Quicksand', sans-serif;
     font-size: 7rem;
     margin-top:4%;
     margin-left: 10%;
