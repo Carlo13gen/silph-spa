@@ -32,8 +32,9 @@ public class FotoController {
 	@Autowired
 	private FotoValidator fotoValidator;
 
-	@RequestMapping("/nuovaImmagine")
-	public String nuovaImmagine(Model model) {
+	@RequestMapping("/nuovaImmagine/album/{id}")
+	public String nuovaImmagine(@PathVariable("id") Long id,Model model) {
+		model.addAttribute("album_id", id);
 		model.addAttribute("immagine", new Foto());
 		return "nuovaImmagine.html";
 	}
@@ -50,8 +51,8 @@ public class FotoController {
 			foto.setImmagine(imageData);
 
 			this.fotoService.inserisciFoto(foto);
-			model.addAttribute("inserita", true); //aggiungi controllo su thymeleaf
-			return "nuovaImmagine.html";  //inserire bottone per terminare inserimento
+			model.addAttribute("inserito", true); 
+			return "operazioniDipendente.html";  
 
 		}
 		else return "nuovaImmagine.html";

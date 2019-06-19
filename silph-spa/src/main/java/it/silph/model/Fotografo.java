@@ -22,10 +22,7 @@ public class Fotografo {
 	
 	@OneToMany(mappedBy = "fotografo")
 	private List<Album> album;
-	
-	@OneToMany
-	@JoinColumn(name = "fotografo_id")
-	private List<Foto> fotografie;
+
 	
 	//COSTRUTTORE
 	public Fotografo() {
@@ -72,12 +69,4 @@ public class Fotografo {
 		this.album = album;
 	}
 
-	public List<Foto> getFotografie() {
-		return fotografie;
-	}
-
-	public void setFotografie(List<Foto> fotografie) {
-		this.fotografie = fotografie;
-	}
-	
 }

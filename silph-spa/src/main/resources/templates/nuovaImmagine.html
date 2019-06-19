@@ -15,7 +15,7 @@
 	crossorigin="anonymous">
 
 <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-<link type="text/css" href="css/nuovaImmagine.css" rel="stylesheet">
+<link type="text/css" href="/css/nuovaImmagine.css" rel="stylesheet">
 
 </head>
 <body>
@@ -30,32 +30,33 @@
 				method="post" enctype="multipart/form-data">
 				<div class = "sfoglia form-row">
 					<div>
-						<input class="cerca btn" type="file" accept="image/*" name="image"/>
+						<input class="cerca btn" type="file" accept="image/*" name="image" required/>
 					</div>
 				</div>
 				<div class="nome form-row">
 					<div>
 						<label for="nome">Nome:</label>
-						<input id="nome" type="text" th:field="*{nome}">
+						<input class="form-control" id="nome" type="text" th:field="*{nome}" placeholder="Nome" required>
 					</div>
 					<div  th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 				</div>
 				<div class="desc form-row">
 					<div class="testo1 form-group">
 						<label for="exampleFormControlTextarea1">Descrizione</label>
-    					<textarea placeholder="Inserisci una descrizione" th:field="*{descrizione}" class="form-control input-lg" id="exampleFormControlTextarea1" rows="3"></textarea>
+    					<textarea maxlength="25" placeholder="Inserisci una descrizione (max 25 caratteri))" th:field="*{descrizione}" class="form-control input-lg" id="exampleFormControlTextarea1" rows="3" required></textarea>
     					</div>
     			</div>
     			<div class="tag form-row">
 					<div class="testo2 form-group">
 						<label for="exampleFormControlTextarea1">Tags</label>
-    					<textarea placeholder="Inserisci tag separati da virgole" class="form-control input-lg" id="exampleFormControlTextarea1" rows="3"></textarea>
+    					<textarea  placeholder="Inserisci tag separati da virgole" class="form-control input-lg" id="exampleFormControlTextarea1" rows="3" required></textarea>
     				</div>
     			</div>
     			<div class="bottoni form-row">
 					<button class="avanti btn" type="submit">Invio</button>
-					<button class="indietro btn" type="submit">Indietro</button>
+					<a class="indietro btn" href="/operazioni">Indietro</a>
 				</div>
+				<input type="hidden" name="album" th:value="${album_id}">
 			</form>	
 		</div>
 	</div>

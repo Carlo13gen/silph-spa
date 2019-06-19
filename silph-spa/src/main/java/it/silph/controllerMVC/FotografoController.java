@@ -69,6 +69,13 @@ public class FotografoController {
 		Fotografo f = fotografoService.fotografoPerId(id);        
 		return f.getImmagine();
 	}
+	
+	@GetMapping("/scegliFotografo")
+	private String scegliFotografo(Model model) {
+		model.addAttribute("fotografi", this.fotografoService.getAllFotografi());
+		return "selezionaFotografo.html";
+	}
+	
 
 }
 

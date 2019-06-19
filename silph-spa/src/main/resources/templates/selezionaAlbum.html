@@ -51,15 +51,19 @@
     		<div class="titolo">
     			<h4 class="display">Albums</h4>
     		</div>
-    	</div>
-    		<ul class="row">
-    			<li th:each="album : ${albums}" class="col-md-4">
-    				<a href="'/album' + '/' + ${album.id}">
- 						
-    				</a>
-    			</li>
-    		</ul>    	
-    	</div>
-    </div>
+    	
+    		<ul class="listaAlbum row">
+         	   <li th:each="album : ${albums}" class="col-md-4">
+         	   		<div class="thumbnail">
+         	   		<a th:href="'/nuovaImmagine/album/' + ${album.id}">
+            			<img th:src="@{'/albumImage' + '/' + ${album.id}}">
+            		</a>
+            		<div class="dati">
+            			<p  th:text="'Nome: ' + ${album.nome}">placeholder</p>
+            		</div>
+            		</div>
+            	</li>
+        	</ul> 	
+	</div>
 </body>
 </html>

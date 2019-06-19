@@ -18,5 +18,14 @@ body{
 }
 
 .dati{
-	margin-left: 1.5rem
+	margin-left: 0.6rem
+}
+
+img{
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
 }

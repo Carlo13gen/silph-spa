@@ -10,5 +10,31 @@ body{
 }
 
 .display{
-	font-size: 3rem
+	font-size: 3rem;
+}
+
+.listaAlbum{
+	list-style-type: none;
+}
+
+.thumbnail{
+	border-radius: 8px;
+	border: 1px solid;
+	padding: 2px;
+	border-color: #394c5f;
+	height: 250px;
+}
+
+img{
+	border-radius: 8px;
+	width: 330px;
+	height: 202.671px;
+}
+
+.dati{
+	text-align: center;
+}
+
+.nome{
+	font-size: 1.5rem;
 }

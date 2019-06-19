@@ -1,0 +1,68 @@
+body{
+	font-family: 'Quicksand', sans-serif;
+	color: #394c5f
+}
+
+.title{
+	margin-top: 0.5rem;
+}
+
+.display{
+	text-align: center;
+    font-size: 4rem;
+}
+
+.first{
+	margin-top: 1rem;
+}
+
+.corpo{
+	margin-top: 1rem;
+}
+
+.richiesta{
+	margin-left: 12rem;
+}
+
+.indietro{
+	border-color: #394c5f;
+	margin-left: 1rem;
+}
+
+.avanti{
+	border-color: #394c5f;
+}
+
+.nome{
+	margin-left: 0.7rem;
+	margin-top: 1rem;
+}
+
+.desc{
+	margin-left: 0.7rem;
+	margin-top: 1rem;
+}
+
+.tag{
+	margin-left: 0.7rem;
+	margin-top: 1rem;
+}
+
+.richiesta{
+	width: 50rem;
+}
+
+.bottoni{
+	margin-left: 0.7rem;
+	margin-top: 1rem;
+}
+
+.avanti:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}
+
+.indietro:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}

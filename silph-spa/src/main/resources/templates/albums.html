@@ -12,8 +12,8 @@
    
    	
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" href="css/albums.css" rel="stylesheet" />
-	<link type="text/css" href="css/navBar.css" rel="stylesheet" />
+    <link type="text/css" href="/css/albums.css" rel="stylesheet" />
+	<link type="text/css" href="/css/navBar.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
 </head>
@@ -51,15 +51,20 @@
     		<div class="titolo">
     			<h4 class="display">Albums</h4>
     		</div>
-    	</div>
-    		<ul class="row">
+    		<ul class="listaAlbum row">
+    			
     			<li th:each="album : ${albums}" class="col-md-4">
-    				<button href="'/album' + '/' + ${album.id}">
- 						
-    				</button>
+					<div class="thumbnail">
+    				<a th:href="'/album/' + ${album.id} + '/fotografie'">
+ 						<img th:src="@{'/albumImage' + '/' + ${album.id}}">
+    				</a>
+    				<div class="dati">
+    					<p class="nome" th:text="'Nome: ' + ${album.nome}">placeholder</p>
+    				</div>
+    			   </div>
     			</li>
+
     		</ul>    	
-    	</div>
     </div>
 </body>
 </html>
