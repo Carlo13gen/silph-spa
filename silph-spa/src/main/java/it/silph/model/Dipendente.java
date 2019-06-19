@@ -12,6 +12,7 @@ public class Dipendente {
 	@Column(name="password",nullable=false)
 	private String password;
 	
+	
 	@Column(nullable = false)
 	private String nome;
 	
@@ -66,10 +67,15 @@ public class Dipendente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
-	public boolean checkPassword(String password) {
-		return this.password.equals(password);
+	
+	public String getRole() {
+		return role;
 	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	
 	
 }
