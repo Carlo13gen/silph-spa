@@ -66,6 +66,6 @@ public class FotoController {
 	@GetMapping("/foto")
 	public String immagini(Model model) {
 		model.addAttribute("immagini", this.fotoService.allFoto());
-		return "immagini.html";
+		return "fotografie.html";
 	}
 }

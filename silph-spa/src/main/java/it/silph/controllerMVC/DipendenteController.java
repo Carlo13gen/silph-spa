@@ -30,7 +30,7 @@ public class DipendenteController {
 		this.loginFormValidator.validate(auth, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			if(authcontroller.IsSignInGranted(auth))
-				return "dipendente.html";
+				return "operazioniDipendente.html";
 			else
 				bindingResult.reject("erroreAuth");
 		}

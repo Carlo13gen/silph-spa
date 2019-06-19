@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en"
-	 xmlns:th="http://www.thymeleaf.org"
+<!doctype html>
+<html lang="en"  
+	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns="http://www.w3.org/1999/html">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" href="css/navBar.css" rel="stylesheet" />
+    <link type="text/css" href="css/fotografiPage.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"><link type="text/css" media="all" rel="stylesheet" th:href="@{/css/index.css}" href="/css/index.css" >
+  
+  </head>
+  <body>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link type="text/css" href="css/navBar.css" rel="stylesheet">
-  <link type="text/css" href="css/immagini.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
-</head>
-	<body>
-	<nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
+    <!-- Navigation -->
+    <nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,22 +54,17 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-    	<div>
-		<h4>Immagini</h4>
-		<ul class="row">
-			<li th:each="foto : ${immagini}" class="lista col-md-4">
-				<img th:src="@{'/imageDisplay' + '/' + ${foto.id}}" >
-				<div>
-				<span th:text="${foto.nome} + ' Id: ' + ${foto.id}"></span>
-				</div>
-				<div>
-					<span th:text="'Description: ' + ${foto.descrizione}"></span>
-				</div>
-			</li>
-		</ul>
-		</div>
-	</div>
-	</body>
+	<div class="contenitorefotografi container">
+    	<div class="row container-fluid">
+    		<ul>
+         	   <li th:each="fotografo : ${fotografi}" class="col-lg-4">
+         	   		<a th:href="'/fotografo/' + ${fotografo.id} + '/albums'" class="btn">
+            			<img th:src="@{'/fotografoImage' + '/' + ${fotografo.id}}">
+            		</a>
+            		<h2 th:text="${fotografo.nome} + ' ' + ${fotografo.cognome}">placeholder</h2>
+            	</li>
+        	</ul>
+        </div>
+   </div>
+  </body>
 </html>
-

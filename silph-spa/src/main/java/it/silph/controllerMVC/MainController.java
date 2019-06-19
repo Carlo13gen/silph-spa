@@ -22,12 +22,12 @@ public class MainController {
 	
 	@RequestMapping("/fotografi")
 	public String fotografiPage() {
-		return "fotografiPage.html";
+		return "fotografi.html";
 	}
 	
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public String homePage() {
-		return "index.html";
+		return "home.html";
 	}
 	
 	
