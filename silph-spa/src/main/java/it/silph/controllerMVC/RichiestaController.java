@@ -46,10 +46,11 @@ public class RichiestaController {
 	}
 	
 	@GetMapping("/listaRichieste")
-	public String listaRichieste(Model model) {
-		model.addAttribute("richieste", this.richiestaService.getAllRequest());
+	public String listaRichiesteNonGestite(Model model) {
+		model.addAttribute("richieste", this.richiestaService.getAllRequests());
 		return "listaRichieste.html";
 	}
+	
 	
 	@GetMapping("/richiesta/{id}")
 	public String richiestaById(@PathVariable("id") Long id, Model model) {
@@ -59,5 +60,11 @@ public class RichiestaController {
 		}
 		else 
 			return "listaRichieste.html";
+	}
+	@RequestMapping("/richiestaGestita/{id}")
+	public void richiestaGestita(@PathVariable("id") Long id,Model model) {
+		Richiesta r=this.richiestaService.getRichiestaById(id);
+		r.setGestita(true);
+		this.richiestaService.inserisciRichiesta(r);
 	}
 }

@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
+
 import javax.sql.DataSource;
 
 
@@ -38,9 +40,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .failureUrl("/login-error")
+                .failureUrl("/loginerror")
                 .defaultSuccessUrl("/operazioni")
-                .and().logout()
+                .and()
+                .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/");
     }
@@ -65,6 +68,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    public SpringSecurityDialect springSecurityDialect() {
+    	return new SpringSecurityDialect();
     }
 }
 

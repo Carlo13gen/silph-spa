@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import it.silph.model.Album;
 import it.silph.model.Foto;
+import it.silph.services.AlbumService;
 import it.silph.services.FotoService;
 import it.silph.validator.FotoValidator;
 
@@ -28,19 +30,29 @@ public class FotoController {
 
 	@Autowired
 	private FotoService fotoService;
+	
+	@Autowired
+	private AlbumService albumService;
 
 	@Autowired
 	private FotoValidator fotoValidator;
 
-	@RequestMapping("/nuovaImmagine")
-	public String nuovaImmagine(Model model) {
-		model.addAttribute("immagine", new Foto());
+	@RequestMapping("/nuovaImmagine/Album{id}")
+	public String nuovaImmagine(@PathVariable("id") Long id,Model model) {
+		
+		Foto foto=new Foto();
+		
+		Album a=this.albumService.getAlbumPerId(id);
+		foto.setAlbum(a);
+		
+		model.addAttribute("immagine", foto);
 		return "nuovaImmagine.html";
 	}
 
 	@PostMapping("/inserisciImmagine")
 	public String inserisciFoto(@Validated @ModelAttribute("immagine") Foto foto,
-			@RequestParam("image") MultipartFile img,Model model,BindingResult bindingResult) throws IOException {
+			@RequestParam("image") MultipartFile img,
+			Model model,BindingResult bindingResult) throws IOException {
 
 		this.fotoValidator.validate(foto, bindingResult);
 
@@ -48,7 +60,7 @@ public class FotoController {
 			byte[] imageData= img.getBytes();
 			
 			foto.setImmagine(imageData);
-
+			
 			this.fotoService.inserisciFoto(foto);
 			model.addAttribute("inserita", true); //aggiungi controllo su thymeleaf
 			return "nuovaImmagine.html";  //inserire bottone per terminare inserimento

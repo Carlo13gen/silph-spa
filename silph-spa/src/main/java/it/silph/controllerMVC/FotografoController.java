@@ -63,9 +63,9 @@ public class FotografoController {
 
 			this.fotografoService.inserisci(fotografo);
 			model.addAttribute("inserito", true); //inserire su thymeleaf il controllo a questa variabile come fatto su loginPage
-			return "operazioni.html";  
+			return "operazioniDipendente.html";  
 		}
-		else return "nuovaImmagine.html";
+		else return "operazioniDipendente.html"; 
 	}
 	
 	//ritorna la foto di un fotografo

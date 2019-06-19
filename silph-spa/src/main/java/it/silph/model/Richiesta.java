@@ -18,6 +18,10 @@ public class Richiesta {
 	@Column(nullable = false)
 	private String emailCliente;
 	
+	@Column(columnDefinition = "boolean default false")
+	private boolean gestita;
+	
+
 	//Abbiamo detto che gli id delle foto vengono inseriti come stringa
 	//Ogni id separato da una virgola
 	@Column(nullable = false)
@@ -66,6 +70,14 @@ public class Richiesta {
 
 	public void setEmailCliente(String emailCliente) {
 		this.emailCliente = emailCliente;
+	}
+	
+	public boolean isGestita() {
+		return gestita;
+	}
+
+	public void setGestita(boolean gestita) {
+		this.gestita = gestita;
 	}
 	
 	

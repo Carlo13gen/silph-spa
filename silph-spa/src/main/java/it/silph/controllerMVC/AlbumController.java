@@ -11,15 +11,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.silph.model.Album;
+import it.silph.model.Fotografo;
 import it.silph.services.AlbumService;
+import it.silph.services.FotografoService;
 
 @Controller
 public class AlbumController {
 	
 	@Autowired
 	private AlbumService albumService;
+	
+	@Autowired
+	private FotografoService fotografoService;
 	
 	//ritorna tutti gli album
 	@GetMapping("/albums")
@@ -35,18 +42,28 @@ public class AlbumController {
 		return "albums.html";
 	}
 	
-	@RequestMapping("/nuovoAlbum")
-	public String nuovoAlbum(Model model) {
-		model.addAttribute("album", new Album());
+	@RequestMapping("/nuovoAlbum/fotografo{id}")
+	public String nuovoAlbum(@PathVariable("id") Long id,Model model) {
+		
+		model.addAttribute("album",new Album());
+		model.addAttribute("idFotografo", id);
 		return "nuovoAlbum.html";
 	}
 	
 	@PostMapping("/inserisciAlbum")
 	public String inserisciAlbum(@Validated @ModelAttribute("album")Album album,
+			@RequestParam("immagine") MultipartFile img,@RequestParam("idFotografo")Long id,
 			Model model) throws IOException {
 		
-		model.addAttribute("inserito", true); //inserisci su thymeleaf
+		Fotografo f= this.fotografoService.fotografoPerId(id);
+		album.setFotografo(f);
+		
+		
+		byte[] imageData= img.getBytes();
+		album.setImmagine(imageData);
+		
 		this.albumService.inserisci(album);
+		model.addAttribute("inserito", true); //inserisci su thymeleaf
 		return "operazioni.html";
 	}
 	
