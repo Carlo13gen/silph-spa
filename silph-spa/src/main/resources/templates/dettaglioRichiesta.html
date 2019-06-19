@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
    
@@ -57,28 +57,34 @@
 			<div class="container">
 				<div class="riga1_1 row">
 					<div class="firstName">
-						<span class="incipit">First Name: <span class="testo" th:text="${richiesta.nomeCliente}">placeholder</span></span>
+						<span class="incipit">First Name: <span class="testo"
+							th:text="${richiesta.nomeCliente}">placeholder</span></span>
 					</div>
 				</div>
 				<div class="riga1_2 row">
 					<div class="lastName">
-						<span class="incipit">Last Name: <span class="testo" th:text="${richiesta.cognomeCliente}">placeholder</span></span>
+						<span class="incipit">Last Name: <span class="testo"
+							th:text="${richiesta.cognomeCliente}">placeholder</span></span>
 					</div>
 				</div>
 				<div class="riga1_3 row">
 					<div class="email">
-						<span class="incipit">Email: <span class="testo" th:text="${richiesta.emailCliente}">placeholder</span></span>
+						<span class="incipit">Email: <span class="testo"
+							th:text="${richiesta.emailCliente}">placeholder</span></span>
 					</div>
 				</div>
 				<div class="riga1_4 row">
 					<div class="foto">
-						<span class="incipit">Photo's ids: <span class="testo" th:text="${richiesta.foto}">placeholder</span></span>
+						<span class="incipit">Photo's ids: <span class="testo"
+							th:text="${richiesta.foto}">placeholder</span></span>
 					</div>
 				</div>
 				<div class="riga1_5 row">
 					<div class="requestId">
-						<span class="incipit">Request id: <span class="testo" th:text="${richiesta.id}">placeholder</span></span>
+						<span class="incipit">Request id: <span class="testo"
+							th:text="${richiesta.id}">placeholder</span></span>
 					</div>
+					<h3 th:if="${inserita}">Hai inserito la richiesta correttamente</h3>
 				</div>
 				<!-- Aggiungere un metodo o qualcosa -->
 				<div class="riga1_6 row">

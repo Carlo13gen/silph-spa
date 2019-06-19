@@ -72,13 +72,11 @@
             <p th:if="${#fields.hasErrors('cognomeCliente')}" th:errors="*{cognomeCliente}"></p>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="validationCustomUsername">Username</label>
+            <label for="validationCustomUsername">Email</label>
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
               </div>
-              	<input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
-                aria-describedby="inputGroupPrepend" th:field="*{emailCliente}" required>
+              	<input type="text" class="form-control" placeholder="email" th:field="*{emailCliente}" required>
                 <p th:if="${#fields.hasErrors('emailCliente')}" th:errors="*{emailCliente}"></p>
               </div>
           </div>

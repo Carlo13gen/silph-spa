@@ -1,4 +1,4 @@
-package it.silph.model.dipendente;
+package it.silph.model;
 
 import javax.persistence.*;
 
@@ -57,6 +57,5 @@ public class Dipendente {
 	public boolean checkPassword(String password) {
 		return this.password.equals(password);
 	}
-	
 	
 }
