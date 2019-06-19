@@ -22,10 +22,10 @@ public class DipendenteController {
 		return "loginPage.html";
 	}
 	
-	/*@RequestMapping("/logout")
+	@RequestMapping("/logout")
 	public String logout(Model model) {
 		return "loginPage.html";
-	}*/
+	}
 
 	@RequestMapping("/operazioni")
 	public String dipendente(Model model) {
