@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package it.silph.model.dipendente;
 
 public class Auth {
@@ -25,3 +26,32 @@ public class Auth {
 	
 
 }
+=======
+package it.silph.model.dipendente;
+
+public class Auth {
+	
+	private String username;
+	
+	private String password;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+
+}
+>>>>>>> parent of 1a0d2ec... Merge branch 'master' of https://github.com/Carlo13gen/silph-spa
