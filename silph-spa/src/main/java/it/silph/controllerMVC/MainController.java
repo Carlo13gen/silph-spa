@@ -53,6 +53,10 @@ public class MainController {
 		return "albums.html";
 	}
 	
+	/*@RequestMapping("/operazioni")
+	public String operazioni(Model model) {
+		return "operazioniDipendente.html";
+	}*/
 	
 	
 }

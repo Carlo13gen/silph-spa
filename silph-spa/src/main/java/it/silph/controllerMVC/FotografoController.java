@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.silph.validator.FotografoValidator;
-import it.silph.model.Album;
 import it.silph.model.Fotografo;
 import it.silph.services.FotografoService;
 
@@ -36,7 +35,7 @@ public class FotografoController {
 
 	@RequestMapping("/nuovoFotografo")
 	public String nuovoAlbum(Model model) {
-		model.addAttribute("album", new Album());
+		model.addAttribute("fotografo", new Fotografo());
 		return "nuovoFotografo.html";
 	}
 
@@ -54,9 +53,13 @@ public class FotografoController {
 
 			this.fotografoService.inserisci(fotografo);
 			model.addAttribute("inserito", true); //inserire su thymeleaf il controllo a questa variabile come fatto su loginPage
-			return "operazioni.html";  
+			return "forward:/operazioni";  
 		}
-		else return "nuovaImmagine.html";
+		else {
+			model.addAttribute("nonInserito", true);
+			return "nuovoFotografo.html";
+		}
+			
 	}
 	
 	//ritorna la foto di un fotografo

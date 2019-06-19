@@ -46,7 +46,7 @@ public class AlbumController {
 	
 	@RequestMapping("/scegliAlbum")
 	public String scegliAlbum(Model model) {
-		model.addAttribute("fotografi", this.albumService.getAllAlbum());
-		return "selezionaAlbum.html";
+		model.addAttribute("albums", this.albumService.getAllAlbum());
+		return "albums.html";
 	}
 }
