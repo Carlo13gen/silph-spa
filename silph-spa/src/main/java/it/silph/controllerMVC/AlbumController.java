@@ -21,12 +21,6 @@ public class AlbumController {
 	@Autowired
 	private AlbumService albumService;
 	
-	//ritorna tutti gli album
-	@GetMapping("/albums")
-	public String albums(Model model) {
-		model.addAttribute("albums", this.albumService.getAllAlbum());
-		return "albums.html";
-	}
 	
 	//ritorna tutti gli album di un fotografo
 	@GetMapping("/fotografo/{id}/albums")

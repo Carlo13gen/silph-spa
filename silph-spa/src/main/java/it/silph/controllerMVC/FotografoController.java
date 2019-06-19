@@ -34,15 +34,6 @@ public class FotografoController {
 	private FotografoValidator fotografoValidator;
 
 
-
-
-	@GetMapping("/fotografi")
-	public String fotografi(Model model) {
-		model.addAttribute("fotografi", this.fotografoService.getAllFotografi());
-		return "fotografi.html";
-	}
-
-
 	@RequestMapping("/nuovoFotografo")
 	public String nuovoAlbum(Model model) {
 		model.addAttribute("album", new Album());

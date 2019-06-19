@@ -65,12 +65,6 @@ public class FotoController {
 	}
 	
 	
-	@GetMapping("/fotografie")
-	public String immagini(Model model) {
-		model.addAttribute("immagini", this.fotoService.allFoto());
-		return "fotografie.html";
-	}
-	
 	//ritorna tutte le foto in un album
 	@GetMapping("/album/{id}/fotografie")
 	public String immaginiPerAlbum(Model model,@PathVariable("id") Long album_id) {
