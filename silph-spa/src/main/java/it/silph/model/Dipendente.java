@@ -1,5 +1,9 @@
 <<<<<<< HEAD:silph-spa/src/main/java/it/silph/model/dipendente/Dipendente.java
+<<<<<<< HEAD:silph-spa/src/main/java/it/silph/model/dipendente/Dipendente.java
 package it.silph.model.dipendente;
+=======
+package it.silph.model;
+>>>>>>> parent of d320dda... re commit:silph-spa/src/main/java/it/silph/model/Dipendente.java
 
 import javax.persistence.*;
 
@@ -7,9 +11,10 @@ import javax.persistence.*;
 public class Dipendente {
 
 	@Id
+	@Column(name="username")
 	private String username;
 	
-	@Column(nullable = false)
+	@Column(name="password",nullable=false)
 	private String password;
 	
 	@Column(nullable = false)
@@ -18,8 +23,20 @@ public class Dipendente {
 	@Column(nullable = false)
 	private String cognome;
 	
+	@Column(nullable=false)
+	private String role;
+	
 	//COSTRUTTORE
 	public Dipendente() {
+	}
+	
+	public Dipendente(String username, String password, String nome, String cognome, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.role = role;
 	}
 
 	//GETTERS & SETTERS
