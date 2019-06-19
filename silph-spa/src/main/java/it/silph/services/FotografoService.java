@@ -20,19 +20,4 @@ public class FotografoService {
 	public List<Fotografo> getFotografiByNome(String nome){
 		return (List<Fotografo>) fotografoRepository.findByNome(nome);
 	}
-
-	@Transactional
-	public List<Fotografo> getAllFotografi() {
-		return (List<Fotografo>) fotografoRepository.findAll();
-	}
-	
-	@Transactional
-	public Fotografo inserisci(Fotografo f) {
-		return this.fotografoRepository.save(f);
-	}
-	
-	@Transactional
-	public Fotografo fotografoPerId(Long id) {
-		return this.fotografoRepository.findById(id).get();
-	}
 }

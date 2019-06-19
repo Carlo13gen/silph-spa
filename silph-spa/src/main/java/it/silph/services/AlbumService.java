@@ -18,20 +18,8 @@ public class AlbumService {
 	
 	@Transactional
 	public List<Album> getAlbumByFotografo(Long fotografo_id) {
-		return (List<Album>) this.albumRepository.findByFotografo_id(fotografo_id);
+		return (List<Album>) albumRepository.findByFotografo_id(fotografo_id);
 	}
-	
-	@Transactional
-	public List<Album> getAllAlbum() {
-		return (List<Album>) this.albumRepository.findAll();
-	}
-	
-	@Transactional
-	public Album inserisci(Album a) {
-		return this.albumRepository.save(a);
-	}
-	
-	
 	
 	
 }

@@ -1,4 +1,4 @@
-package it.silph.model;
+package it.silph.model.dipendente;
 
 import javax.persistence.*;
 
@@ -6,10 +6,9 @@ import javax.persistence.*;
 public class Dipendente {
 
 	@Id
-	@Column(name="username")
 	private String username;
 	
-	@Column(name="password",nullable=false)
+	@Column(nullable = false)
 	private String password;
 	
 	@Column(nullable = false)
@@ -18,20 +17,8 @@ public class Dipendente {
 	@Column(nullable = false)
 	private String cognome;
 	
-	@Column(nullable=false)
-	private String role;
-	
 	//COSTRUTTORE
 	public Dipendente() {
-	}
-	
-	public Dipendente(String username, String password, String nome, String cognome, String role) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.role = role;
 	}
 
 	//GETTERS & SETTERS

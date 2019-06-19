@@ -5,7 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import it.silph.model.Dipendente;
+import it.silph.model.dipendente.Dipendente;
 
 @Component
 public class DipendenteValidator implements Validator {

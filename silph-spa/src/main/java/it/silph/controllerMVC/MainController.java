@@ -4,9 +4,9 @@ package it.silph.controllerMVC;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
+import it.silph.model.dipendente.Auth;
 
 
 
@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
 
 	
-	public MainController() {
-        super();
-    }
+	@RequestMapping("/login")
+	public String pagina(Model model) {
+		model.addAttribute("auth", new Auth());
+		return "loginPage.html";
+	}
 	
-	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String index(Model model) {
-        return "home";
-    }
+	@RequestMapping("/fotografi")
+	public String fotografiPage() {
+		return "fotografiPage.html";
+	}
 	
 	
 	

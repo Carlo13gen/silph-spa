@@ -50,8 +50,7 @@ public class FotoController {
 			foto.setImmagine(imageData);
 
 			this.fotoService.inserisciFoto(foto);
-			model.addAttribute("inserita", true); //aggiungi controllo su thymeleaf
-			return "nuovaImmagine.html";  //inserire bottone per terminare inserimento
+			return "immagineInserita.html";  //pagina che conferma l'inserimento;
 
 		}
 		else return "nuovaImmagine.html";
@@ -64,17 +63,9 @@ public class FotoController {
 	    return foto.getImmagine();
 	}
 	
-	
-	@GetMapping("/fotografie")
+	@GetMapping("/foto")
 	public String immagini(Model model) {
 		model.addAttribute("immagini", this.fotoService.allFoto());
-		return "fotografie.html";
-	}
-	
-	//ritorna tutte le foto in un album
-	@GetMapping("/album/{id}/fotografie")
-	public String immaginiPerAlbum(Model model,@PathVariable("id") Long album_id) {
-		model.addAttribute("immagini", this.fotoService.getFotoByAlbumid(album_id));
-		return "fotografie.html";
+		return "immagini.html";
 	}
 }

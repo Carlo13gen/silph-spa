@@ -1,4 +1,4 @@
-package it.silph.validator;
+package it.silph.services;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
