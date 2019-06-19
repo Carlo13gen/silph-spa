@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.silph.model.Richiesta;
 import it.silph.services.RichiestaService;
-import it.silph.services.RichiestaValidator;
+import it.silph.validator.RichiestaValidator;
 
 @Controller
 public class RichiestaController {
@@ -23,6 +23,7 @@ public class RichiestaController {
 	
 	@Autowired
 	private RichiestaValidator richiestaValidator;
+	
 	
 	@RequestMapping("/creaRichiesta")
 	private String creaRichiesta(Model model) {
@@ -37,6 +38,7 @@ public class RichiestaController {
 		if(!bindingResult.hasErrors()) {
 			this.richiestaService.inserisciRichiesta(richiesta);
 			model.addAttribute("richiesta", richiesta);
+			model.addAttribute("inserita", true);
 			return "dettaglioRichiesta.html";
 		}
 		else

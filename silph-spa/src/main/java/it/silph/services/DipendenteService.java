@@ -5,7 +5,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.silph.model.dipendente.Dipendente;
+import it.silph.model.Dipendente;
 import it.silph.repository.DipendenteRepository;
 
 @Service

@@ -44,13 +44,20 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn border-light text-light my-2 my-sm-0" type="submit">Search</button>
                   </form>
-                </li>
-                <li class="nav-item active">
-                  <a class="login nav-link ml-5" href="/login">LOGIN</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon mr-1"></span>
-                  </button>
-                </li>
+                <li class="nav-item active" sec:authorize="isAnonymous()"><a
+					class="login nav-link ml-5" th:href="@{/login}">LOGIN</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon mr-1"></span>
+					</button></li>
+				<li class="nav-item active" sec:authorize="isAuthenticated()"><a
+					class="logout nav-link ml-5" th:href="@{/logout}">LOGOUT</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon mr-1"></span>
+						</button></li>
             </ul>
         </div>
     </nav>
