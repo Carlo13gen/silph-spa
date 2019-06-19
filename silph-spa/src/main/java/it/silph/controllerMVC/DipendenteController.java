@@ -16,16 +16,12 @@ public class DipendenteController {
 		return "loginPage.html";
 	}
 	
-	@RequestMapping("/login-error")
+	@RequestMapping("/loginerror")
 	public String loginError(Model model) {
 		model.addAttribute("loginError", true);
 		return "loginPage.html";
 	}
 	
-	@RequestMapping("/logout")
-	public String logout(Model model) {
-		return "loginPage.html";
-	}
 
 	@RequestMapping("/operazioni")
 	public String dipendente(Model model) {
