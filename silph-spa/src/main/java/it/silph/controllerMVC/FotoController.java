@@ -52,7 +52,7 @@ public class FotoController {
 
 			this.fotoService.inserisciFoto(foto);
 			model.addAttribute("inserito", true); 
-			return "operazioniDipendente.html";  
+			return "forward:/operazioni";    
 
 		}
 		else return "nuovaImmagine.html";

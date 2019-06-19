@@ -56,7 +56,7 @@ public class AlbumController {
 		
 		this.albumService.inserisci(album);
 		model.addAttribute("inserito", true); //inserisci su thymeleaf
-		return "operazioniDipendente.html";
+		return "forward:/operazioni";  
 	}
 	
 	@GetMapping(value="/albumImage/{id}",produces= {MediaType.IMAGE_PNG_VALUE,MediaType.IMAGE_JPEG_VALUE})
