@@ -12,3 +12,11 @@ body{
 .display{
 	font-size: 3rem
 }
+
+.listaFotografi{
+	list-style-type: none;
+}
+
+.dati{
+	margin-left: 1.5rem
+}
