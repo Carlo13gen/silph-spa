@@ -11,8 +11,8 @@
     <!-- Bootstrap CSS -->
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" href="css/navBar.css" rel="stylesheet"/>
-    <link type="text/css" href="css/listaRichieste.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/navBar.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/listaRichieste.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
   </head>
 </head>
@@ -31,19 +31,21 @@
           <a class="nav-link" href="/fotografi">Photographers</a>
         </li>
         <li class="albumsPage nav-item active">
-          <a class="nav-link" href="#">Albums</a>
+          <a class="nav-link" href="/albums">Albums</a>
         </li>
         <li class="photosPage nav-item active">
           <a class="nav-link" href="/foto">Photos</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn border-light text-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </li>
+         <li class="nav-item active" sec:authorize="isAuthenticated()"><a
+					class="logout nav-link ml-5" th:href="@{/logout}">LOGOUT</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon mr-1"></span>
+					</button>
+		</li>
       </ul>
     </div>
   </nav>
@@ -51,12 +53,12 @@
     	<div class="row">
     		<div class="col-md-auto">
     		<div class="title">
-    			<h4 class="titolo">New Requests</h4>
+    			<h4 class="titolo">Richieste Non Gestite</h4>
     		</div>
     			<div class="list-group">
 			<ul class="requestList" style-type="none">
   				<li class="lst" th:each="richiesta : ${richieste}">
-  					<a th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
+  					<a th:if="${not richiesta.gestita}" th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
   					<div>
   					<span 
   					 th:text="'Id:' + ' ' + ${richiesta.id}">placeholder
@@ -72,12 +74,12 @@
 		</div>
 			<div class="col-md-auto">
     		<div class="title">
-    			<h4 class="titolo">Old Requests</h4>
+    			<h4 class="titolo">Richieste Gestite</h4>
     		</div>
     			<div class="list-group">
 			<ul class="requestList" style-type="none">
   				<li class="lst" th:each="richiesta : ${richieste}">
-  					<a th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
+  					<a th:if="${richiesta.gestita}"  th:href="@{'/richiesta' + '/' + ${richiesta.id}}" class="custom btn">
   					<div>
   					<span 
   					 th:text="'Id:' + ' ' + ${richiesta.id}">placeholder

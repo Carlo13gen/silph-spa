@@ -61,10 +61,12 @@ public class RichiestaController {
 		else 
 			return "listaRichieste.html";
 	}
-	@RequestMapping("/richiestaGestita/{id}")
-	public void richiestaGestita(@PathVariable("id") Long id,Model model) {
+	@RequestMapping("richiesta/richiestaGestita/{id}")
+	public String richiestaGestita(@PathVariable("id") Long id,Model model) {
 		Richiesta r=this.richiestaService.getRichiestaById(id);
 		r.setGestita(true);
 		this.richiestaService.inserisciRichiesta(r);
+		model.addAttribute("richieste", this.richiestaService.getAllRequests());
+		return "listaRichieste.html";
 	}
 }

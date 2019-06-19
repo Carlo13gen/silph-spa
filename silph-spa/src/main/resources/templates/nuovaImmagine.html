@@ -36,7 +36,7 @@
 				<div class="nome form-row">
 					<div>
 						<label for="nome">Nome:</label>
-						<input class="form-control" id="nome" type="text" th:field="*{nome}" placeholder="Nome" required>
+						<input maxlength="20" class="form-control" id="nome" type="text" th:field="*{nome}" placeholder="Nome (max 20 caratteri)" required>
 					</div>
 					<div  th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 				</div>
@@ -52,9 +52,12 @@
     					<textarea  placeholder="Inserisci tag separati da virgole" class="form-control input-lg" id="exampleFormControlTextarea1" rows="3" required></textarea>
     				</div>
     			</div>
+    			<div>
+    				<p th:if="${inserito}">Inserita Correttamente</p>
+    			</div>
     			<div class="bottoni form-row">
 					<button class="avanti btn" type="submit">Invio</button>
-					<a class="indietro btn" href="/operazioni">Indietro</a>
+					<a class="indietro btn" href="/operazioni">Termina inserimento</a>
 				</div>
 				<input type="hidden" name="album" th:value="${album_id}">
 			</form>	

@@ -36,6 +36,10 @@
               <li class="photosPage nav-item active">
                 <a class="nav-link" href="/foto">Photos</a>
               </li>
+              <li class="photosPage nav-item active" sec:authorize="isAuthenticated()">
+                <a class="nav-link" href="/operazioni">Operazioni</a>
+              </li>
+              
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li>
@@ -44,6 +48,20 @@
                     <button class="btn border-light text-light my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </li>
+                 <li class="nav-item active" sec:authorize="isAuthenticated()"><a
+					class="logout nav-link ml-5" th:href="@{/logout}">LOGOUT</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon mr-1"></span>
+					</button></li>
+				<li class="nav-item active" sec:authorize="isAnonymous()"><a
+					class="logout nav-link ml-5" th:href="@{/login}">LOGIN</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon mr-1"></span>
+					</button></li>
             </ul>
         </div>
     </nav>

@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.authorizeRequests()
             .antMatchers(HttpMethod.GET, "/", "/home").permitAll()
             .antMatchers(HttpMethod.GET, "/operazioni").hasAnyAuthority("DIPENDENTE")
+            .antMatchers("/creaRichiesta").access("not(hasRole('DIPENDENTE')) and isAnonymous()")
           //.anyRequest().authenticated()
             .and()
             .formLogin()
