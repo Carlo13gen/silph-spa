@@ -46,7 +46,7 @@ public class MainController {
 		return "fotografi.html";
 	}
 	
-	//ritorna tutti gli album
+	//ritorna tutti gli albums
 	@GetMapping("/albums")
 	public String albums(Model model) {
 		model.addAttribute("albums", this.albumService.getAllAlbum());

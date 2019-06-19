@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 import javax.sql.DataSource;
@@ -26,33 +27,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Environment environment;
 
-   
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/", "/home").permitAll()
-                .antMatchers(HttpMethod.GET, "/operazioni").hasAnyAuthority("DIPENDENTE")
-                //.anyRequest().authenticated()
-                
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .failureUrl("/loginerror")
-                .defaultSuccessUrl("/operazioni")
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/");
+        	.authorizeRequests()
+            .antMatchers(HttpMethod.GET, "/", "/home").permitAll()
+            .antMatchers(HttpMethod.GET, "/operazioni").hasAnyAuthority("DIPENDENTE")
+          //.anyRequest().authenticated()
+            .and()
+            .formLogin()
+            	.defaultSuccessUrl("/operazioni")
+            	.loginPage("/login")
+            	.failureUrl("/loginerror")
+            .and()
+             	.logout()
+             		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+             		.logoutSuccessUrl("/");
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(this.buildDatasource())
-                .authoritiesByUsernameQuery("SELECT username, role FROM dipendente WHERE username=?")
-                .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM dipendente WHERE username=?");
+        auth.jdbcAuthentication()
+        	.dataSource(this.buildDatasource())
+            .authoritiesByUsernameQuery("SELECT username, role FROM dipendente WHERE username=?")
+            .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM dipendente WHERE username=?");
     }
 
     @Bean
