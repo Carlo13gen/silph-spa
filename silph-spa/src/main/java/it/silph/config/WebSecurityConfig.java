@@ -27,13 +27,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Environment environment;
 
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
         	.authorizeRequests()
             .antMatchers(HttpMethod.GET, "/", "/home").permitAll()
-            .antMatchers(HttpMethod.GET, "/operazioni").hasAnyAuthority("DIPENDENTE")
+            .antMatchers(HttpMethod.GET, "/operazioni", "/nuovaImmagine/**", "/nuovoFotografo", "/nuovoAlbum/**").hasAnyAuthority("DIPENDENTE")
             .antMatchers("/creaRichiesta").access("not(hasRole('DIPENDENTE')) and isAnonymous()")
           //.anyRequest().authenticated()
             .and()

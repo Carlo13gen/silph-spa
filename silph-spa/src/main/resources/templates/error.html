@@ -1,25 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en"  
 	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns="http://www.w3.org/1999/html">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-   
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="text/css" href="/css/navBar.css" rel="stylesheet" />
-    <link type="text/css" href="/css/fotografi.css" rel="stylesheet" />
-    
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"><link type="text/css" media="all" rel="stylesheet" th:href="@{/css/index.css}" href="/css/index.css" >
-  
-  </head>
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
+	  xmlns="http://www.w3.org/1999/html" >
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Errore</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" href="/css/navBar.css" rel="stylesheet">
+  <link type="text/css" href="/css/error.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<nav class="navigation navbar navbar-expand-lg navbar-dark py-2">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,18 +61,8 @@
             </ul>
         </div>
     </nav>
-	<div class="contenitorefotografi container">
-		<div class="titolo">
-			<h4 class="display">Fotografi</h4>
-		</div>
-    		<ul class="listaFotografi row">
-         	   <li th:each="fotografo : ${fotografi}" class="col-md-4">
-         	   		<a th:href="'/fotografo/' + ${fotografo.id} + '/albums'" class="btn">
-            			<img th:src="@{'/fotografoImage' + '/' + ${fotografo.id}}">
-            		</a>
-            		<h1 class="dati" th:text="${fotografo.nome} + ' ' + ${fotografo.cognome}">placeholder</h2>
-            	</li>
-        	</ul>
-   </div>
-  </body>
+	<div class="testo">
+	<h2>Ops, questa Pagina non esiste! Torna alla Home</h2>
+	</div>
+</body>
 </html>

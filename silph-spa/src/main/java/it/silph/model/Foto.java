@@ -16,7 +16,7 @@ public class Foto {
 	
 	private String descrizione;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Tag> tags;
 	
 	
@@ -31,6 +31,19 @@ public class Foto {
 	public Foto() {
 	}
 	
+	
+	
+	public Foto(String nome, String descrizione, List<Tag> tags, byte[] immagine, Album album) {
+		super();
+		this.nome = nome;
+		this.descrizione = descrizione;
+		this.tags = tags;
+		this.immagine = immagine;
+		this.album = album;
+	}
+
+
+
 	//GETTERS & SETTERS
 	public Long getId() {
 		return id;

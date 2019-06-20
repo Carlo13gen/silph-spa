@@ -34,3 +34,12 @@ img{
 .dati{
 	text-align: center;
 }
+
+.errore{
+	margin-top: 4rem;
+	text-align: center
+}
+
+.testo{
+	font-size: 2rem;
+}

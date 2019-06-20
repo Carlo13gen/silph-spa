@@ -36,6 +36,11 @@ public class AlbumController {
 		return "albums.html";
 	}
 	
+	@RequestMapping("/nuovoAlbum/fotografo/")
+	public String errore(Model model) {
+		model.addAttribute("fotografi", this.fotografoService.getAllFotografi());
+		return "selezionaFotografo.html";
+	}
 	@RequestMapping("/nuovoAlbum/fotografo/{id}")
 	public String nuovoAlbum(@PathVariable("id") Long id, Model model) {
 		Album a =  new Album();

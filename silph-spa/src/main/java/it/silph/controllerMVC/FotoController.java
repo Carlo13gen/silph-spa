@@ -3,6 +3,7 @@ package it.silph.controllerMVC;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.silph.model.Foto;
 import it.silph.model.Tag;
+import it.silph.services.AlbumService;
 import it.silph.services.FotoService;
 import it.silph.services.TagService;
 import it.silph.validator.FotoValidator;
@@ -34,9 +36,18 @@ public class FotoController {
 	@Autowired
 	private TagService tagService;
 
-	
+
 	@Autowired
 	private FotoValidator fotoValidator;
+
+	@Autowired
+	private AlbumService albumService;
+
+	@RequestMapping("nuovaImmagine/album")
+	public String errore(Model model) {
+		model.addAttribute("albums", this.albumService.getAllAlbum());
+		return "selezionaAlbum.html";
+	}
 
 	@RequestMapping("/nuovaImmagine/album/{id}")
 	public String nuovaImmagine(@PathVariable("id") Long id,Model model) {
@@ -52,12 +63,12 @@ public class FotoController {
 
 		this.fotoValidator.validate(foto, bindingResult);
 		String[] t=tags.split(",");
-		
+
 
 		if(!bindingResult.hasErrors()) {
-			
+
 			byte[] imageData= img.getBytes();
-			
+
 			foto.setImmagine(imageData);
 
 			this.fotoService.inserisciFoto(foto);
@@ -75,22 +86,36 @@ public class FotoController {
 
 	@GetMapping(value="/imageDisplay/{id}",produces= {MediaType.IMAGE_PNG_VALUE,MediaType.IMAGE_JPEG_VALUE})
 	public  @ResponseBody byte[] showImage(@PathVariable("id") Long id) throws IOException{
-		
+
 		Foto foto = fotoService.fotoPerId(id);        
-	    return foto.getImmagine();
+		return foto.getImmagine();
 	}
-	
-	
+
+
 	//ritorna tutte le foto in un album
 	@GetMapping("/album/{id}/fotografie")
 	public String immaginiPerAlbum(Model model,@PathVariable("id") Long album_id) {
-		model.addAttribute("immagini", this.fotoService.getFotoByAlbumid(album_id));
-		return "fotografie.html";
+		List<Foto> immagini = this.fotoService.getFotoByAlbumid(album_id);
+		if(immagini.isEmpty()) {
+			model.addAttribute("vuoto", true);
+			return "fotografie.html";
+		}
+		else {
+			model.addAttribute("immagini", immagini);
+			return "fotografie.html";
+		}
 	}
-	
+
 	@GetMapping("/cercaFoto")
 	public String cercaFoto(Model model,@RequestParam("ricerca")String ricerca) {
-		model.addAttribute("immagini", this.fotoService.getFotoPerTag(ricerca));
-		return "fotografie.html";
+		List<Foto> immagini = this.fotoService.getFotoPerTag(ricerca);
+		if(immagini.isEmpty()) {
+			model.addAttribute("vuoto", true);
+			return "fotografie.html";
+		}
+		else {
+			model.addAttribute("immagini", immagini);
+			return "fotografie.html";
+		}
 	}
 }

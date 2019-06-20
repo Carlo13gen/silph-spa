@@ -36,6 +36,9 @@
         <li class="photosPage nav-item active">
           <a class="nav-link" href="/foto">Foto</a>
         </li>
+        <li class="photosPage nav-item active" sec:authorize="isAuthenticated()">
+                <a class="nav-link" href="/operazioni">Operazioni</a>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
          <li class="nav-item active" sec:authorize="isAuthenticated()"><a

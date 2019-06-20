@@ -1,5 +1,6 @@
 package it.silph.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -24,12 +25,29 @@ public class Album {
 	@ManyToOne
 	private Fotografo fotografo;
 	
-	@OneToMany(mappedBy = "album")
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
 	private List<Foto> fotografie;
 
 	//COSTRUTTORE
 	public Album() {
 	}
+	
+	
+
+	public Album(String nome, String descrizione, byte[] immagine, Fotografo fotografo) {
+		super();
+		this.nome = nome;
+		this.descrizione = descrizione;
+		this.immagine = immagine;
+		this.fotografo = fotografo;
+		this.fotografie = new LinkedList<>();
+	}
+	
+	public void inserisciFoto(Foto foto) {
+		this.fotografie.add(foto);
+	}
+
+
 
 	//GETTERS & SETTERS
 	public Long getId() {
