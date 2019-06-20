@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import it.silph.model.Foto;
+import it.silph.model.Tag;
 import it.silph.services.FotoService;
+import it.silph.services.TagService;
 import it.silph.validator.FotoValidator;
 
 @Controller
@@ -29,6 +31,10 @@ public class FotoController {
 	@Autowired
 	private FotoService fotoService;
 
+	@Autowired
+	private TagService tagService;
+
+	
 	@Autowired
 	private FotoValidator fotoValidator;
 
@@ -41,16 +47,25 @@ public class FotoController {
 
 	@PostMapping("/inserisciImmagine")
 	public String inserisciFoto(@Validated @ModelAttribute("immagine") Foto foto,
-			@RequestParam("image") MultipartFile img,Model model,BindingResult bindingResult) throws IOException {
+			@RequestParam("image") MultipartFile img,@RequestParam("tags") String tags,
+			Model model,BindingResult bindingResult) throws IOException {
 
 		this.fotoValidator.validate(foto, bindingResult);
+		String[] t=tags.split(",");
+		
 
 		if(!bindingResult.hasErrors()) {
+			
 			byte[] imageData= img.getBytes();
 			
 			foto.setImmagine(imageData);
 
 			this.fotoService.inserisciFoto(foto);
+			for(String s:t) {
+				Tag tag=new Tag(s);
+				tag.inserisciFoto(foto);
+				this.tagService.inserisci(tag);
+			}
 			model.addAttribute("inserito", true); 
 			return "nuovaImmagine.html";    
 
@@ -70,6 +85,12 @@ public class FotoController {
 	@GetMapping("/album/{id}/fotografie")
 	public String immaginiPerAlbum(Model model,@PathVariable("id") Long album_id) {
 		model.addAttribute("immagini", this.fotoService.getFotoByAlbumid(album_id));
+		return "fotografie.html";
+	}
+	
+	@GetMapping("/cercaFoto")
+	public String cercaFoto(Model model,@RequestParam("ricerca")String ricerca) {
+		model.addAttribute("immagini", this.fotoService.getFotoPerTag(ricerca));
 		return "fotografie.html";
 	}
 }
