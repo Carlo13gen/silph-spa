@@ -63,12 +63,12 @@ public class DBPopulation implements ApplicationRunner {
         Album a4 = new Album("Album di Luigi", "Volatili", extractBytes("fotoTest22.jpg"), f1);
         Album a5 = new Album("Album di Carla 2", "Lauree", extractBytes("fotoTest20.jpg"), f2);
         
-        Tag t1 = new Tag("uccello");
-        Tag t2 = new Tag("gabbiano");
-        Tag t3 = new Tag("matrimonio");
-        Tag t4 = new Tag("laurea");
-        Tag t5 = new Tag("pesce");
-        Tag t6 = new Tag("vaso");
+        Tag t1 = new Tag("ponte");
+        Tag t2 = new Tag("fotocamera");
+        Tag t3 = new Tag("calendario");
+        Tag t4 = new Tag("neve");
+        Tag t5 = new Tag("strada");
+        Tag t6 = new Tag("linea");
         
         List<Tag> lt1 = new LinkedList<>();
         lt1.add(t1);

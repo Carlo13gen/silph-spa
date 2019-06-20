@@ -29,23 +29,20 @@
 				method="post" enctype="multipart/form-data">
 				<div class = "sfoglia form-row">
 					<div>
-						<input class="cerca btn" type="file" accept="image/*" name="image"/>
+						<input class="cerca btn" type="file" accept="image/*" name="image" required/>
 					</div>
 				</div>
 				<div class="nome form-row">
 					<div>
 						<label for="nome">Nome:</label>
-						<input  placeholder="Nome" maxlength="25" class="form-control" id="nome" type="text" th:field="*{nome}">
+						<input  placeholder="Nome" maxlength="25" class="form-control" id="nome" type="text" th:field="*{nome}" required>
 					</div>
 				</div>
 				<div class="nome form-row">
 					<div>
 						<label for="cognome">Cognome: </label>
-    					<input  placeholder="Cognome" maxlength="25" class="form-control" id="cognome" type="text" th:field="*{cognome}">
+    					<input  placeholder="Cognome" maxlength="25" class="form-control" id="cognome" type="text" th:field="*{cognome}" required>
     				</div>
-    			</div>
-    			<div>
-    				<p th:if="${nonInserito}">Compila i campi</p>
     			</div>
     			<div class="bottoni form-row">
 					<button class="avanti btn" type="submit">Invio</button>

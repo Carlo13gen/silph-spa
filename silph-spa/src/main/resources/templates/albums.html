@@ -69,6 +69,9 @@
     		<div class="titolo">
     			<h4 class="display">Albums</h4>
     		</div>
+    		<div class="errore">
+				<p class="testo" th:if=${vuoto}>Nessun album da mostrare</p>
+			</div>
     		<ul class="listaAlbum row">
     			
     			<li th:each="album : ${albums}" class="col-md-4">

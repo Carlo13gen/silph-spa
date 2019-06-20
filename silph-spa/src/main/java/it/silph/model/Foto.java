@@ -41,9 +41,7 @@ public class Foto {
 		this.immagine = immagine;
 		this.album = album;
 	}
-
-
-
+	
 	//GETTERS & SETTERS
 	public Long getId() {
 		return id;

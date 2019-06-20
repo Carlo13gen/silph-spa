@@ -39,3 +39,8 @@ img{
 .nome{
 	font-size: 1.5rem;
 }
+
+.errore{
+	font-size: 2rem;
+	text-align: center;
+}

@@ -56,7 +56,6 @@ public class FotografoController {
 			return "forward:/operazioni";  
 		}
 		else {
-			model.addAttribute("nonInserito", true);
 			return "nuovoFotografo.html";
 		}
 			

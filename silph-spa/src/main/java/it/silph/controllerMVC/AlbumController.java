@@ -1,6 +1,7 @@
 package it.silph.controllerMVC;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,7 +33,9 @@ public class AlbumController {
 	//ritorna tutti gli album di un fotografo
 	@GetMapping("/fotografo/{id}/albums")
 	public String albumsPerFotografo(Model model,@PathVariable("id") Long fotografo_id) {
-		model.addAttribute("albums", this.albumService.getAlbumByFotografo(fotografo_id));
+		List<Album> albums = this.albumService.getAlbumByFotografo(fotografo_id);
+		model.addAttribute("albums", albums);
+		model.addAttribute("vuoto", albums.isEmpty());
 		return "albums.html";
 	}
 	
