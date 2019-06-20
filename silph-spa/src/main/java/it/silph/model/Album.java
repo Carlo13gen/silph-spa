@@ -16,8 +16,6 @@ public class Album {
 	
 	private String descrizione;
 	
-	@ManyToMany
-	private List<Tag> tags;
 	
 	@Lob
     @Column(name="immagine", length=100000)
@@ -56,14 +54,6 @@ public class Album {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public List<Tag> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
 	}
 
 	public byte[] getImmagine() {

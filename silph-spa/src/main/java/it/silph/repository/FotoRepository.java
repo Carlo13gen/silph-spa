@@ -12,5 +12,7 @@ import it.silph.model.Foto;
 public interface FotoRepository extends CrudRepository<Foto, Long> {
 	
 	public List<Foto> findByAlbum_id(Long album_id);
+
+	public List<Foto> findAllByTags_nome(String tag);
 	
 }

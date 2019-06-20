@@ -36,4 +36,9 @@ public class FotoService {
 		return (List<Foto>) this.fotoRepository.findAll();
 	}
 	
+	@Transactional
+	public List<Foto> getFotoPerTag(String tag){
+		return this.fotoRepository.findAllByTags_nome(tag);
+	}
+	
 }
