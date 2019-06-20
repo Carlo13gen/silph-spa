@@ -1,6 +1,5 @@
 body{
-    background-color: #e9ecef ;
-    color: black; 
+    color: #394c5f;
     font-family:'Quicksand', sans-serif;
 }
 .login{
@@ -26,5 +25,13 @@ input[type=checkbox], input[type=radio] {
     font-size: 7rem;
     margin-top:4%;
     margin-left: 10%;
-    color: black;
+}
+
+.log{
+	border-color: #394c5f;
+}
+
+.log:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
 }
