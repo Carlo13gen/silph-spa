@@ -32,13 +32,13 @@
           <a class="homePage nav-link" href="/">Home |</a>
         </li>
         <li class="photographersPage nav-item active">
-          <a class="nav-link" href="/fotografi">Photographers</a>
+          <a class="nav-link" href="/fotografi">Fotografi</a>
         </li>
         <li class="albumsPage nav-item active">
           <a class="nav-link" href="/albums">Albums</a>
         </li>
         <li class="photosPage nav-item active">
-          <a class="nav-link" href="/foto">Photos</a>
+          <a class="nav-link" href="/foto">Foto</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -63,14 +63,14 @@
       <form class="needs-validation" th:action="@{/inserisciRichiesta}" th:method="POST" th:object="${richiesta}">
         <div class="form-row">
           <div class="col-md-4 mb-3">
-            <label for="validationCustom01">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+            <label for="validationCustom01">Nome</label>
+            <input maxlength="25" type="text" class="form-control" id="validationCustom01" placeholder="Nome"
               required th:field="*{nomeCliente}">
             <p th:if="${#fields.hasErrors('nomeCliente')}" th:errors="*{nomeCliente}"></p>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="validationCustom02">Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" th:field="*{cognomeCliente}" required>
+            <label for="validationCustom02">Cognome</label>
+            <input maxlength="25" type="text" class="form-control" placeholder="Cognome" th:field="*{cognomeCliente}" required>
             <p th:if="${#fields.hasErrors('cognomeCliente')}" th:errors="*{cognomeCliente}"></p>
           </div>
           <div class="col-md-4 mb-3">
@@ -78,17 +78,17 @@
             <div class="input-group">
               <div class="input-group-prepend">
               </div>
-              	<input type="text" class="form-control" placeholder="email" th:field="*{emailCliente}" required>
+              	<input type="text" class="form-control" placeholder="Email" th:field="*{emailCliente}" required>
                 <p th:if="${#fields.hasErrors('emailCliente')}" th:errors="*{emailCliente}"></p>
               </div>
           </div>
         </div>
         <div class="form-row">
-          <label for="insertIdFoto">Insert photo's id</label>
+          <label for="insertIdFoto">Inserisci l'id delle foto</label>
           <div class="input-group" aria-placeholder="ids">
             <div class="input-group-prepend">
               <span class="input-text"></span>
-              <input type="text" class="form-control" placeholder="ids" th:field="*{foto}" required>
+              <input type="text" class="form-control" placeholder="id delle foto" th:field="*{foto}" required>
               <p th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></p>
             </div>
           </div>
@@ -97,14 +97,17 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
             <label class="form-check-label" for="invalidCheck">
-              Agree to terms and conditions
+              Accetto i termini e le condizioni
             </label>
             <div class="invalid-feedback">
               You must agree before submitting.
             </div>
           </div>
         </div>
-        <button class="invia btn" type="submit">Submit form</button>
+        <div>
+        <button class="invia btn" type="submit">Invia</button>
+        <a class="indietro btn" href="/operazioni">Indietro</a>
+        </div>
       </form>
     </div>
   </div>

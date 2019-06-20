@@ -1,5 +1,6 @@
 body{
     font-family: 'Quicksand', sans-serif;
+    color: #394c5f;
 }
 
 .title{
@@ -33,11 +34,12 @@ body{
 }
 
 .custom:hover{
-    background-color:lavender;
+    background-color: #394c5f;
+   	color: ghostwhite
 }
 
 .messaggio{
-	margin-left: 12rem;
-	font-size: 3rem;
+	margin-left: 28rem;
+	font-size: 1.5rem;
 	margin-top: 2rem;
 }

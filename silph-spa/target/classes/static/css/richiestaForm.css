@@ -23,7 +23,22 @@ body{
     color: #394c5f;
 }
 
+.indietro{
+	border-color: #394c5f;
+	background-color: ghostwhite;
+	color: #394c5f;
+	margin-left: 0.5rem;
+}
+
+.form-check{
+	margin-top: 0.8rem;
+}
 .invia:hover{
+    background-color: #394c5f;
+    color: ghostwhite;
+}
+
+.indietro:hover{
     background-color: #394c5f;
     color: ghostwhite;
 }
