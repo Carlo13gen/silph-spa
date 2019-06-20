@@ -81,7 +81,7 @@
 				</div>
 				<!-- Aggiungere un metodo o qualcosa -->
 				<div class="riga1_6 row">
-					<a th:href="@{'richiestaGestita' + '/' + ${richiesta.id}}" class="gestisci btn" sec:authorize="isAuthenticated()">
+					<a th:if="${!richiesta.gestita}" th:href="@{'richiestaGestita' + '/' + ${richiesta.id}}" class="gestisci btn" sec:authorize="isAuthenticated()">
 						<span>Gestisci richiesta</span>
 					</a>
 					<div>
