@@ -31,10 +31,6 @@ public class AlbumService {
 		return this.albumRepository.save(a);
 	}
 
-	@Transactional
-	public Album albumPerId(Long id) {
-		return this.albumRepository.findById(id).get();
-	}
 	
 	@Transactional
 	public Album getAlbumPerId(Long id) {

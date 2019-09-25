@@ -70,7 +70,7 @@ public class AlbumController {
 	@GetMapping(value="/albumImage/{id}",produces= {MediaType.IMAGE_PNG_VALUE,MediaType.IMAGE_JPEG_VALUE})
 	public  @ResponseBody byte[] showImage(@PathVariable("id") Long id) throws IOException{
 		
-		Album album = albumService.albumPerId(id);        
+		Album album = albumService.getAlbumPerId(id);        
 	    return album.getImmagine();
 	}
 	
